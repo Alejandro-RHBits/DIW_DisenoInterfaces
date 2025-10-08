@@ -1,0 +1,55 @@
+La interfaz de usuario es el punto de interacción entre el usuario y nuestro programa, no solo lo visual si no lo que utilizamos para interactuar con el (mouse, teclado).
+
+
+Existen diferentes clases:
+	-CLI->Todo es por líneas de comando.
+	-GUI->Es grafico.
+	-NUI->tienen elementos gráficos, son táctiles.
+
+
+UX (User Experience)/Experiencia del Usuario:
+Es la manera en la que el Usuario interactúa, percibe o se siente con el programa.
+
+
+Conceptos fundamentales:
+Se trata de que todo sea funcional, fácil de utilizar para el Usuario y accesible.
+
+
+Diseño centrado en el Usuario:
+	-Entender el contexto de uso -> Que tipo de usuarios lo usaran y sus necesidades.
+	-Especificar los requisitos -> Para la empresa y para los usuarios
+	-Diseñar las soluciones -> 
+	-Evaluar los resultados
+
+
+Las formas, líneas, espacios, escalas:
+
+Son muy importantes para mostrar de una mejor manera nuestra aplicación, sea calidez, velocidad, etc. Dependiendo de los colores, las formas, la tipografía, etc.
+
+
+Teoría del color y la psicología del color:
+
+La psicología del color es importante porque cada color puede tener un significado y un propósito para la página. Y la teoría del color nos ayuda para escoger colores que se mezclen y se vean bien para la página.
+
+
+15/09/2025
+
+Principios de Diseño
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

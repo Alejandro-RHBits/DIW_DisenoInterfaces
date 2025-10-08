@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Tokens Limpio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos Globales y Reset */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background: #F4F4F4;
+            padding: 40px;
+        }
+
+        /* Contenedor Principal */
+        .design-system-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 1024px;
+            margin: 0 auto; /* Centra el contenido */
+            padding: 20px;
+            background: #FFF;
+            border: 1px solid rgba(0, 0, 0, 0.10);
+            border-radius: 8px;
+        }
+
+        /* Panel de Información */
+        .info-panel {
+            display: flex;
+            flex-direction: column;
+            padding: 16px;
+            gap: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.10);
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .info-panel h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 40px;
+            color: #000;
+            margin: 0;
+        }
+
+        .info-panel .description {
+            color: #7F7F7F;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .info-panel .values-info {
+            font-weight: 700;
+            font-size: 16px;
+            color: #000;
+            margin: 0;
+        }
+
+        /* Panel de Tokens (Stroke) */
+        .token-panel {
+            padding: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.10);
+            border-radius: 8px;
+            background: #F3E7FF;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .token-group {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 12px;
+            border-radius: 20px;
+            background: #FFF;
+            box-shadow: 0 3px 50px rgba(0, 0, 0, 0.07);
+        }
+
+        .token-group-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            color: #000;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        /* Contenedor de Previsualizaciones */
+        .stroke-previews {
+            display: flex;
+            flex-wrap: wrap; /* Hace que se envuelvan en pantallas pequeñas */
+            gap: 16px;
+        }
+
+        .token-card {
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.10);
+            background: #FFF;
+            overflow: hidden; /* Para que el borde no corte la previsualización */
+        }
+
+        .preview-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            background: #F3E7FF;
+            width: 80px; /* Tamaño fijo del área de preview */
+            height: 80px; /* Tamaño fijo del área de preview */
+            box-sizing: content-box;
+        }
+
+        /* Estilos Específicos de los Strokes */
+        .stroke-preview {
+            width: 100%;
+            height: 100%;
+            border-top: 0 solid #000;
+            border-left: 0 solid #000;
+        }
+        .preview-stroke-0 { border-width: 2px; }
+        .preview-stroke-1 { border-width: 3px; }
+        .preview-stroke-2 { border-width: 5px; }
+        .preview-stroke-3 { border-width: 8px; }
+
+        /* Detalles del Token */
+        .token-details {
+            display: flex;
+            flex-direction: column;
+            padding: 6px 8px;
+            background: #FFF;
+        }
+
+        .token-name {
+            color: #2D3339;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 20px;
+        }
+
+        .token-value {
+            color: #7F7F7F;
+            font-size: 9px;
+            font-weight: 400;
+        }
+
+        /* Media Query para responsividad básica */
+        @media (max-width: 600px) {
+            .design-system-container {
+                padding: 10px;
+                gap: 15px;
+            }
+            .stroke-previews {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="design-system-container">
+
+        <section class="info-panel">
+            <svg style="width:54px;height:37px;" width="54" height="37" viewBox="0 0 54 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                    <path d="M10.4277 11.9873V8.93968H18.7617V11.9873H10.4277ZM15.97 8.93968H19.2543V28.4445H15.97V8.93968ZM3.6538 28.4445V6.90794H6.93812V28.4445H3.6538ZM10.633 0H19.2543V3.2508H10.633C9.94874 3.2237 9.31925 3.31852 8.74449 3.53524C8.19711 3.75196 7.7592 4.13122 7.43077 4.67302C7.10233 5.18773 6.93812 5.9327 6.93812 6.90794H3.6538C3.6538 5.28254 3.94118 3.96868 4.51593 2.96635C5.11806 1.93693 5.93914 1.19196 6.97917 0.731429C8.04658 0.24381 9.26451 0 10.633 0ZM0 8.93968H12.0699V11.9873H0V8.93968Z" fill="#1F1F1F" />
+                    <path d="M30.0759 25.2344C28.6253 25.2344 27.2432 24.8958 25.9295 24.2185C24.6431 23.5142 23.5894 22.5118 22.7683 21.2115C21.9746 19.9112 21.5777 18.3535 21.5777 16.5385C21.5777 14.7235 21.9746 13.1658 22.7683 11.8655C23.562 10.5381 24.602 9.52218 25.8884 8.81784C27.1748 8.08641 28.5706 7.7207 30.0759 7.7207C30.5412 7.7207 30.9791 7.76133 31.3896 7.8426C31.8275 7.89678 32.2381 7.9916 32.6213 8.12705H40.9552V11.6217C39.7783 11.6217 38.6014 11.405 37.4246 10.9715C36.2751 10.5381 35.2898 10.0911 34.4687 9.63054L34.3045 9.468C35.2624 9.98271 36.0424 10.5923 36.6445 11.2966C37.274 12.0009 37.7393 12.8001 38.0404 13.6941C38.3688 14.5609 38.533 15.5091 38.533 16.5385C38.533 18.3535 38.1362 19.9112 37.3425 21.2115C36.5761 22.5118 35.5498 23.5142 34.2634 24.2185C32.9771 24.8958 31.5812 25.2344 30.0759 25.2344ZM36.1108 36.5715V35.6776C36.1108 34.2418 35.7277 33.1988 34.9613 32.5487C34.2224 31.8985 33.1002 31.5734 31.5949 31.5734H27.4895C26.5863 31.5734 25.7926 31.4922 25.1084 31.3296C24.4515 31.1942 23.9041 30.9775 23.4662 30.6795C23.0283 30.3815 22.6999 30.0158 22.4809 29.5823C22.262 29.1489 22.1525 28.6613 22.1525 28.1195C22.1525 27.0901 22.4672 26.318 23.0967 25.8033C23.7262 25.2615 24.5063 24.9229 25.4368 24.7874C26.3674 24.652 27.2569 24.652 28.1053 24.7874L30.0759 25.2344C28.598 25.3157 27.4485 25.4647 26.6274 25.6814C25.8337 25.8981 25.4368 26.3586 25.4368 27.063C25.4368 27.4693 25.5873 27.8079 25.8884 28.0788C26.2168 28.3226 26.6958 28.4446 27.3253 28.4446H31.5949C33.0181 28.4446 34.3181 28.6342 35.495 29.0134C36.6719 29.4198 37.6162 30.0835 38.3278 31.0045C39.0394 31.9527 39.3952 33.2395 39.3952 34.8649V36.5715H36.1108ZM30.0759 22.1868C30.9791 22.1868 31.8139 21.97 32.5802 21.5366C33.3739 21.1032 34.0171 20.4666 34.5097 19.6268C35.0024 18.787 35.2487 17.7576 35.2487 16.5385C35.2487 15.3195 35.0024 14.29 34.5097 13.4503C34.0445 12.5834 33.415 11.9332 32.6213 11.4998C31.8275 11.0393 30.9791 10.809 30.0759 10.809C29.1727 10.809 28.3243 11.0393 27.5306 11.4998C26.7368 11.9332 26.0937 12.5698 25.601 13.4096C25.1084 14.2494 24.8621 15.2924 24.8621 16.5385C24.8621 17.7576 25.1084 18.787 25.601 19.6268C26.0937 20.4666 26.7368 21.1032 27.5306 21.5366C28.3243 21.97 29.1727 22.1868 30.0759 22.1868Z" fill="#1F1F1F" />
+                    <path d="M43.1756 8.12705H46.46V28.4446H43.1756V8.12705ZM53.0286 11.1747C51.6328 11.1747 50.4559 11.5269 49.498 12.2312C48.5674 12.9085 47.8284 13.7483 47.281 14.7506C46.761 15.7258 46.4189 16.674 46.2547 17.595L46.2136 15.2382C46.2136 14.9944 46.2684 14.588 46.3779 14.0191C46.4873 13.4503 46.6926 12.8136 46.9937 12.1093C47.2947 11.3779 47.6916 10.6871 48.1842 10.0369C48.7043 9.35964 49.3611 8.80429 50.1548 8.37086C50.9485 7.93742 51.9065 7.7207 53.0286 7.7207V11.1747Z" fill="#1F1F1F" />
+                </g>
+            </svg>
+            
+            <h1>Stroke System</h1>
+            <p class="description">Generate using a fixed base for best result.</p>
+            <p class="values-info">These are the values you will be able to use throughout the project</p>
+        </section>
+        
+        <section class="token-panel">
+            <div class="token-group">
+                <h2 class="token-group-title">STROKE</h2>
+                <div class="stroke-previews">
+
+                    <div class="token-card">
+                        <div class="preview-box">
+                            <div class="stroke-preview preview-stroke-0"></div>
+                        </div>
+                        <div class="token-details">
+                            <span class="token-name">#0</span>
+                            <span class="token-value">2</span>
+                        </div>
+                    </div>
+                    
+                    <div class="token-card">
+                        <div class="preview-box">
+                            <div class="stroke-preview preview-stroke-1"></div>
+                        </div>
+                        <div class="token-details">
+                            <span class="token-name">#1</span>
+                            <span class="token-value">3</span>
+                        </div>
+                    </div>
+                    
+                    <div class="token-card">
+                        <div class="preview-box">
+                            <div class="stroke-preview preview-stroke-2"></div>
+                        </div>
+                        <div class="token-details">
+                            <span class="token-name">#2</span>
+                            <span class="token-value">5</span>
+                        </div>
+                    </div>
+                    
+                    <div class="token-card">
+                        <div class="preview-box">
+                            <div class="stroke-preview preview-stroke-3"></div>
+                        </div>
+                        <div class="token-details">
+                            <span class="token-name">#3</span>
+                            <span class="token-value">8</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+    </main>
+</body>
+</html>
