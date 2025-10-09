@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio de Imáges y enlaces</title>
+    <style>
+        table,td{
+            border: 1px solid black;
+            border-collapse: 1;
+        }
+
+        td{
+            width: 10%;
+            text-align: center;
+        }
+
+        .img{
+            width: 80px;
+            height: 110px;
+        }
+    </style>
+</head>
+<body>
+    
+    <p style="text-align:center">
+            <a href="http://www.as.com" target="_blank"><img src="img/html5.png" /></a>
+            <a href="http://www.elpais.com" target="_blank"><img width="225px" src="img/css3.png" /></a>
+    </p>
+    <p style="text-align:center">
+            <a href="http://www.elmundo.com" target="_blank"><img src="img/chrome.jpeg" /></a>
+    </p>
+
+    <hr><!--------------------------------------------------------------------------------------------->
+
+
+    <ol type="i">
+        <li>General Aviation
+            <ol type="a">
+                <li>Single Aviation Aircraft</li>
+                <li>Dual Engine Aircraft</li>
+            </ol>
+        </li>
+        <li>Comercial Aviationgine
+            <ul style="list-style-type: disc">
+                <li>Dual Engine</li>
+                <li>Tri-Engine</li>
+            </ul>
+        </li>
+    </ol>
+
+    <ul style="list-style-type: square">
+        <li>A
+            <ul style="list-style-type: disc">
+                <li>B
+                    <ol>
+                        <li>C</li>
+                        <li>D</li>
+                    </ol>
+                </li>
+                <li>E
+                    <ul>
+                        <li>F</li>
+                        <li>G</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>B</li>
+    </ul>
+
+
+    <hr><!--------------------------------------------------------------------------------------------->
+    <br>
+    
+    <table>
+        <thead>
+            <!--Primer Fila-->
+            <tr>
+                <td colspan="1" rowspan="2"></td>
+                <td colspan="3" rowspan="3"><img src="img/100_ipod.png" alt="" class="img"></td>
+                <td colspan="2" rowspan="2"><img src="img/120_ipod.png" alt=""></td>
+            </tr>
+        </thead>
+        <tbody>
+            <!--Segunda Fila-->
+        <tr>
+            <td>Capacidad</td>
+            <td>2GB</td>
+            <td>4GB</td>
+            <td>8GB</td>
+            <td>32GB</td>
+            <td>2GB</td>
+        </tr>
+            <!--Tercer Fila-->
+        <tr>
+            <td>Colores</td>
+
+            <td>Blanco</td>
+
+            <td>
+                <ul>
+                    <li>Negro</li>
+                    <li>Rosa</li>
+                    <li>Dorado</li>
+                </ul>
+            </td>
+
+            <td>Negro</td>
+
+            <td colspan="2">
+                <ul>
+                    <li>Negro</li>
+                    <li>Blanco</li>
+                </ul>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Pantalla</td>
+            <td colspan="3">3 pulgadas</td>
+            <td colspan="2">7 pulgadas</td>
+        </tr>
+            <!--Cuarta Fila-->
+        <tr>
+            <td rowspan="2">Tiempo de Carga</td>
+            <td colspan="3" rowspan="2">1 hora</td>
+            <td colspan="2">3 horas</td>
+        </tr>
+            <!--Quinta Fila-->
+        <tr>
+            <td colspan="2">30 minutos para 73%</td>
+        </tr>
+
+        </tbody>
+        
+    </table>
+
+</body>
+</html>
