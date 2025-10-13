@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 2.2 Formularios</title>
+
+    <style>
+        .cuadro {
+        width: 70%;
+        height: 45px;
+        }
+
+        .cuadro1 {
+        width: 50%;
+        height: 20px;
+        }
+
+        .cuadro2 {
+        width: 80%;
+        height: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        }
+
+        .izquierda {
+            float: left;
+        }
+
+        .derecha {
+            float: right;
+        }
+
+        .cuadrotitulo{
+            border: 1px solid black; 
+            background-color: white;
+        }
+
+        .verde{
+            background-color: rgb(159, 252, 136);
+        }
+
+        .azul{
+            background-color: rgb(172, 217, 230);
+        }
+
+        .morado{
+            background-color: rgb(186, 115, 243);
+        }
+
+        fieldset{
+            width: 55%;
+        }
+
+        legend{
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+    <form action="post" method="#">
+        <fieldset class="verde">
+            <legend class="cuadrotitulo">Datos Personales</legend>
+            <p>
+                <label for="apellidos">Apellidos: </label><input type="text" name="apellidos" placeholder="insertar apellidos">
+                <label for="nombre">Nombre: </label><input type="text" name="nombre" placeholder="insertar nombre">
+                <label for="email">Email: </label><input type="email" name="email" placeholder="Correo electrónico">
+            </p>
+
+            <p>
+                <label for="telefono">Telefono: </label><input type="text" name="telefono" placeholder="Nº de contacto">
+                <label for="dni">DNI: </label><input type="text" name="dni" placeholder="Nº de documento">
+                <label for="fechanacimiento">Fecha de Nacimiento: </label><input type="date" name="fechanacimiento">
+            </p>
+
+            <div class="cuadro1">
+
+                <div class="izquierda">
+                    <label for="provincias">Provincia: </label>
+                    <select name="provincias" id="provincias">
+                        <option value="Selecciona">-Selecciona-</option>
+                        <option value="Toledo">Toledo</option>
+                        <option value="CiudadReal">Ciudad Real</option>
+                    </select>
+                </div>
+
+                <div class="derecha">
+                    <label for="sexo">Sexo: </label><input type="radio" name="SiNo" id="SiNo">Hombre<input type="radio" name="SiNo" id="SiNo">Mujer
+                </div>
+
+            </div>
+            <div class="cuadro2">
+                <div class="izquierda">
+                    <label for="dispositivosprefe">Dispositivos Preferidos: </label>
+                    <input type="checkbox" name="dispositivosprefe" id="dispositivosprefe">PC
+                    <input type="checkbox" name="dispositivosprefe" id="dispositivosprefe">Tableta
+                    <input type="checkbox" name="dispositivosprefe" id="dispositivosprefe">Móvil
+                </div>
+                <div class="derecha">
+                    <label for="ideprefe">IDE Preferido: </label><input type="text" name="ideprefe" id="ideprefe">
+                </div>
+            </div>
+        </fieldset>
+
+        <br>
+
+        <fieldset class="azul">
+            <legend class="cuadrotitulo">Otros datos de interés</legend>
+            <br>
+            <textarea name="datosinteres" id="datosinteres" cols="100" rows="10" placeholder="Indica cualquier otra información que consideres relevante"></textarea>
+        </fieldset>
+
+        <br>
+
+        <fieldset class="morado">
+            <legend class="cuadrotitulo">Competencia de Programación:</legend>
+            <div class="cuadro">
+                <div class="izquierda">
+                    <label for="java">Nivel de Java: </label><input type="range" id="java" min="0" max="100" value="0">
+                    <br>
+                    <label for="html">Nivel de HTML: </label><input type="range" id="html" min="0" max="100" value="0">
+                </div>
+                <div class="derecha">
+                    <label for="python">Nivel de Python: </label><input type="range" id="python" min="0" max="100" value="0">
+                    <br>
+                    <label for="css">Nivel de CSS: </label><input type="range" id="css" min="0" max="100" value="0">
+                </div>
+            </div>
+        </fieldset>
+
+        <br>
+
+        <button type="button">Activado</button>
+        <button type="reset">Borrar Datos</button>
+        <button type="submit">Enviar Solicitud</button>
+        <button type="submit" disabled>Desactivado</button>
+
+    </form>
+</body>
+</html>
