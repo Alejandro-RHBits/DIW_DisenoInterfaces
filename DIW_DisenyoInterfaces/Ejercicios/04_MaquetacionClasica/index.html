@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Maquetación CSS</title>
+</head>
+<body>
+
+    <header>
+        <h1>Maquetación Clásica CSS</h1>
+    </header>
+    
+    <div class="contenedor">
+
+        <div class="card">
+            <h2>Diseño de Página</h2>
+            <p>
+                Para crear esta página utilizamos distintas técnicas, tanto para crear cada cuadro/tarjeta y hacer que se
+                separé uno de otro como para darle el mismo ancho a cada uno, algunas fueron:
+            </p>
+            <ul>
+                <li><strong>Layout Fluido:</strong> El contenedor y las tarjetas usan porcentajes.</li>
+                <li><strong>box-sizing: border-box:</strong> Para que el padding no rompa la estructura.</li>
+                <li><strong>Centrado (Bloque):</strong> Usamos position: absolute con transform en el .contenedor.</li>
+                <li><strong>Position (relative/absolute):</strong> relative en el body y absolute en el .contenedor.</li>
+                <li><strong>Flotantes:</strong> float: left en las tarjetas y el clearfix hack (con clear: both).</li>
+            </ul>
+        </div>
+
+        <div class="card card-2">
+            <h2>Columnas</h2>
+            <p>
+                En esta tarjeta usamos <strong>column-count</strong> para dividir este texto en dos. Para que no se junten las dos columnas usamos: 
+                (<strong>column-gap</strong>) y para que se vea un poco más estilizado ponemos una linea con: (<strong>column-rule</strong>).
+                De esta manera optenemos una presentación bonita sin tener que crear dos divs separados. 
+            </p>
+        </div>
+
+        <div class="card card-3">
+            <h2>Elementos Inline</h2>
+            <p>
+                Los elementos <span class="inline-span">'inline'</span> (como este span) simplemente continuan con el resto del texto, sin saltar
+                o cambiar el resto del contenido. En cambio, <strong>'inline-block'</strong> nos deja darles alto y ancho a los elementos, pero sin romper la línea.
+            </p>
+            <div class="box-container">
+                <span class="inline-text">Alineado:</span>
+                <div class="inline-box" style="background: #e74c3c;"></div>
+                <div class="inline-box" style="background: #f1c40f;"></div>
+                <div class="inline-box" style="background: #2ecc71;"></div>
+            </div>
+        </div>
+
+        <div class="card card-4">
+            <h2>Float y Layout Elástico</h2>
+            <img src="img/JakeRJS.webp" alt="Jake_el_perro">
+            
+            <p>Aquí aplicamos <strong>float: right</strong> a la imagen. De esta manera la imagen flota a la derecha miestras que el texto la rodea.</p>
+            
+            <p>Además, usamos en el ancho de la imagen un <strong>'em' (8em)</strong> haciendo que su tamaño sea relativo al `font-size`, 
+            ya que dependiendo del tamaño de la letra se hará mas o menos grande el ancho de la foto. 
+            Si aumentas el zoom del navegador (que aumenta la fuente), la imagen crecerá también.</p>
+
+        </div>
+
+        <div class="card card-5">
+            <h2>Título Fijo</h2>
+            
+            <div class="content-scroll">
+                <p>Esta tarjeta tiene <code>overflow-y: auto</code> que no permite que el contenido se salga, si no que deja todo por dentro del recuadro/tarjeta,
+                    y en caso de que haya más contenido del que pueda se crea la barra para desplazarnos.</p>
+
+                <p>El título de arriba tiene <strong>position: sticky</strong>. Esto hace que se "pegue" en la parte superior de la tarjeta cuando hacemos scroll hacia abajo.</p>
+                
+                <p>Se le ha dado un <strong>z-index</strong> para asegurar que se muestre por encima de este texto mientras nos desplazamos. A continuación texto de
+                prueba para probar el scroll:</p>
+                
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                
+                <p><strong>¡Sigue bajando!</strong></p>
+                
+                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
