@@ -1,0 +1,408 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+/*================================MENU==============================*/
+.container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 20px;
+  width: 100%;
+  background-color: #d1d1d1;
+  flex-wrap: wrap;
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  width: 100%;
+  background-color: #d1d1d1;
+  padding: 25px 20px;
+  text-align: center;
+  color: #2e2e2e;
+  margin-top: auto;
+}
+
+.imagenLogo{
+    height: 50px;
+    width: auto;
+}
+
+.listaInicio{
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    align-items: center;
+}
+
+.centrar{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.estilos{
+  list-style: none;
+}
+
+.estilos span{
+  font-weight: bold;
+}
+
+/*=========MENU HAMBURGUESA=========*/
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger {
+  cursor: pointer;
+}
+
+.input-hamburguesa-real {
+    display: none;
+}
+
+.hamburger svg {
+  height: 3em;
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: black;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  
+  transition:
+    stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+
+.input-hamburguesa-real:checked ~ .hamburger svg {
+  transform: rotate(-45deg);
+}
+
+.input-hamburguesa-real:checked ~ .hamburger .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/*=================================*/
+
+.contenedorimagen {
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+  position: relative; /*Para que el overlay se posicione relativo a este div */
+  display: flex; /*Para centrar contenido*/
+  justify-content: center; /*Centrar contenido horizontalmente*/
+  align-items: center; /*Centrar contenido verticalmente */
+}
+
+/* Esta es la imagen de adentro */
+.contenedorimagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: 50% 70%;
+}
+
+.imagenDifuminada {
+  position: absolute; /* Se posiciona sobre la imagen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo negro con 40% de opacidad*/
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  text-align: left;
+  color: white;
+  padding: 20px;
+  z-index: 1;
+}
+
+.imagenDifuminada h1 {
+  font-size: 5.5em;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra Titulo */
+  margin: 0;
+  line-height: 0.8;
+}
+
+.imagenDifuminada p {
+  font-size: 1.5em; /* Tamaño del subtítulo */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  margin-top: 10px;
+}
+
+.imagenDifuminada span{
+  font-family: 'Dancing Script', cursive;
+}
+
+/*======================================================================*/
+
+.contenedorTarjetas{
+  width: 90%;
+  max-width: 1700px;
+  margin: 40px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 5px;
+}
+
+.card {
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+  flex: 1 1 300px; 
+
+  display: flex;
+  flex-direction: column;
+}
+
+.card p{
+  text-align: justify;
+}
+
+.card h1{
+  text-align: center;
+}
+
+.boton-donar{
+  display: block;
+  background-color: transparent;
+  color: #333; 
+  padding: 10px 22px; 
+  border-radius: 12px;
+  border: 2px solid #2c6e49; 
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.3s ease;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+}
+
+.card1{
+  background-color: #C5E0DC;
+}
+
+.card2{
+  background-color: #c9ad6f;
+}
+
+.card3{
+  background-color: #a0d995;
+}
+
+.card4{
+  background-color: #fadc9b;
+}
+
+.imagenTarjeta{
+  width: 100%;
+  height: 30%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.leer-mas{
+  display: none;
+}
+
+.imagenesFooter{
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1385px) {
+
+  .card {
+    flex-basis: calc(50% - 7.5px);
+  }
+
+  .card h1 {
+    font-size: 1.8em;
+  }
+
+  .imagenTarjeta {
+    height: 300px;      /* <-- 1. Le da una altura fija en píxeles */
+    object-fit: cover; /* <-- 2. Evita que la imagen se distorsione */
+  }
+
+}
+
+@media (max-width: 600px) {
+
+    /* --- 1. MUESTRA LA HAMBURGUESA --- */
+    .hamburger {
+        display: block;
+        position: relative; /* Importante para la superposición */
+        z-index: 101; /* Se asegura que el icono esté SOBRE el panel */
+    }
+
+    /* --- 2. AJUSTA EL HEADER --- */
+    header {
+        flex-direction: row; 
+        justify-content: space-between;
+        align-items: center;
+        position: relative; /* Contexto para el z-index */
+        z-index: 100; /* Header por encima del contenido */
+    }
+
+    /* --- 3. ESTILOS DEL PANEL DESLIZANTE (.listaInicio) --- */
+    .listaInicio {
+        
+        position: fixed; 
+        top: 0;
+        right: 0;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: #a8a8a8; 
+        z-index: 100;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        padding-top: 80px;
+        
+        /* === LA ANIMACIÓN === */
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    /* --- 4. LA FUNCIONALIDAD (MOSTRAR EL PANEL) --- */
+    /* Cuando el checkbox está marcado, mueve el panel a su sitio */
+    .input-hamburguesa-real:checked ~ .listaInicio {
+        transform: translateX(0); /* Lo trae de vuelta a la pantalla */
+    }
+
+    .contenedorimagen {
+        height: 350px;
+    }
+
+    .contenedorimagen img {
+        object-position: 80% 50%;
+    }
+
+    .imagenDifuminada h1 {
+        font-size: 3.2em;
+        margin: 0;
+        line-height: 0.9;
+    }
+
+    .imagenDifuminada p {
+        font-size: 1.3em;
+        margin-top: 20px;
+    }
+
+    .imagenDifuminada {
+        padding: 0 20px; 
+    }
+
+    .contenedorTarjetas {
+      gap: 15px;
+      padding: 20px 15px;
+  }
+
+  .card {
+    flex-basis: calc(50% - 7.5px);
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  .card h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .card p {
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; 
+    -webkit-box-orient: vertical;
+  }
+
+  .imagenTarjeta {
+    height: 200px;   
+    object-fit: cover;
+  }
+
+  .leer-mas {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    color: #2c6e49;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+
+  .card .boton-donar {
+    font-size: 0.9em;    
+    padding: 8px 18px;   
+    margin-top: auto;
+  }
+
+  .card.card-expandida p {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+  }
+
+  /* Oculta el botón "Leer más" porque ya no se necesita */
+  .card.card-expandida .leer-mas {
+    display: none;
+  }
+
+}
