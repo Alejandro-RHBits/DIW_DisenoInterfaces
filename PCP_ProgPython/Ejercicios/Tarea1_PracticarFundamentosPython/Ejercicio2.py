@@ -15,4 +15,4 @@ def calcular_imc(peso,altura):
 #   3. Llama a estas funciones con los datos ingresados en el ejercicio 1 y muestra los resultados.
 
 funcion_saludar("Alejandro")
-calcular_imc(66,1.70)
+calcular_imc(66, 1.70)

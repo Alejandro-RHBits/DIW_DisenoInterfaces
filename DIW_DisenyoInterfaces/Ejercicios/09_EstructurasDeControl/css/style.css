@@ -1,0 +1,46 @@
+header {
+  background-color: white;
+  color: black;
+}
+
+td:nth-child(1) {
+  color: red;
+  background-color: #0f0;
+}
+
+td:nth-child(2) {
+  color: red;
+  background-color: #00f;
+}
+
+td:nth-child(3) {
+  color: red;
+  background-color: orange;
+}
+
+td:nth-child(4) {
+  color: red;
+  background-color: #ccc;
+}
+
+p:nth-of-type(1) {
+  color: red;
+  background-color: #0f0;
+}
+
+p:nth-of-type(2) {
+  color: red;
+  background-color: #00f;
+}
+
+p:nth-of-type(3) {
+  color: red;
+  background-color: orange;
+}
+
+p:nth-of-type(4) {
+  color: red;
+  background-color: #ccc;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,58 @@
+//Variables de colores
+$grey: #bbbbbb;
+$header-background: $grey;
+$link-normal: #000;
+$link-visited: #00f;
+$link-active: #0f0;
+$autor: "Alejandro";
+
+/*Elementos 
+de la cabecera*/
+header{
+    background-color: $header-background;
+}
+
+//Listas y mapas
+
+/*Tamaño de los iconos*/
+$sizes: (40px,80px,160px);
+
+//Breakpoints para la página
+$breakpoints: (
+    "pequenio": 576px,
+    "medio": 768px,
+    "grande": 972px 
+);
+
+//interpolacion en selectores
+$button-type: "error";
+$btn-color: #f00;
+
+.btn-#{$button-type}{
+    background-color: $btn-color;
+}
+
+//Interpolacion en uso de funciones
+$fondo: "img/fondos/default.png";
+
+.container{
+    background-image: url('#{$fondo}');
+}
+
+/*
+    Web desarrollada por #{$autor}
+*/
+
+a{
+    color: $link-normal;
+    text-decoration: none;
+    &:hover{
+        color: $link-normal;
+    }
+    &:visited{
+        color: $link-visited;
+    }
+    &:active{
+        color: $link-active;
+    }
+}

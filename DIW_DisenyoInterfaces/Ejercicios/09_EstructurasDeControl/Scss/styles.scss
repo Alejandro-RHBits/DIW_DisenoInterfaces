@@ -1,0 +1,57 @@
+$light-theme:true;
+$dark-theme:true;
+
+//Colores
+
+$negro:black;
+$blanco:white;
+$gris: #aaa;
+$grisOscuro: #444;
+
+header{
+    @if $light-theme == true{
+        background-color: $blanco;
+        color: $negro;
+    }@else if $dark-theme{
+        background-color: $negro;
+        color: $blanco;
+    }@else{
+        background-color: $gris;
+        color: $grisOscuro;
+    }
+}
+
+$num:1;
+$color-list: #0f0,#00f, orange, #ccc;
+$rojo:red;
+
+@while $num<5{
+    td:nth-child(#{$num}){
+        color: $rojo;
+        background-color: nth($color-list, $num);
+    }
+    $num: $num + 1;
+}
+
+@for $i from 1 through 4{
+    p:nth-of-type(#{$i}){
+        color: $rojo;
+        background-color: nth($color-list,$i);
+    }
+}
+
+$usuarios: pepe, lola, manuel;
+
+@each $u in $usuarios{
+    .profile-#{$u}{
+        background: image-url("img/#{$u}.png") no repeat;
+    }
+}
+
+$mapa: (
+    pepe: "c1.png",
+    lola: "lola.png",
+    manuel: ""
+)
+
+//
