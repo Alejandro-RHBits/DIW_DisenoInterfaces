@@ -1,41 +1,78 @@
-//Color letra activa
+/// @author Alejandro Ríos
+/// @access public
+////
+
+/// @group Configuración - Colores
+/// @type Color
 $color-background: #ffffff;
-
-//Borde tarjetas
+$color-button-active: orange;
 $color-base: #333;
-
-//colores menú
 $navbar-background-color:rgb(84, 189, 66);
 $navbar-color-hover: $color-background;
 
-//Colores del borde
-$border-color:$color-base;
-$border-style:"solid";
-$border-width:0.1rem;
-
-$main-container-width: 80%;
-
-//Adicional
-$block-inline: inline-block;
-$padding-left: 1rem;
-$padding-right: 1rem;
-$padding-right-right:10rem;
-$font-size: 1rem;
-$margin:0.5rem;
-$text-center: center;
-
-//Colores a botones
-//Colores de base
+//Colores de botones
 $color-error: #ff0000;
 $color-warning: rgb(239, 241, 120);
 $color-accepted: rgb(55, 138, 0);
 $color-normal: rgb(0, 110, 255);
 $color-shadow: #888;
 
-//Valor del radio para redondear los botones
+/// @group Configuración - Layout
+/// @type Number | String | Color
+$border-color:$color-base;
+$border-style:"solid";
+$border-width:0.1rem;
+$main-container-width: 80%;
+$font-size: 1rem;
+$margin:0.5rem;
 $border-radius: 0.4rem;
 
-//Mapa del que cogeremos los nombres para interpolarlos y los valores de los colores
+//Padding, borde y margin Botones
+$padding-button:0.4rem;
+$padding-button-right:0.5rem;
+$borde-buttons:solid black 1px;
+$margin-buttons:20px;
+
+//Ancho de imagenes
+$width-img:100%;
+
+/// Variables auxiliares para propiedades CSS estándar
+/// @group Helpers
+$block-inline: inline-block;
+$padding-left: 1rem;
+$padding-right: 1rem;
+$padding-right-nav:7rem;
+$center: center;
+$left: left;
+$text-decoration-none: none;
+$margin-zero:0;
+$padding-zero:0;
+$centrar-container: 0 auto;
+$start-flex: flex;
+$separacion-flex: space-between;
+$start-block: block;
+$border-box: border-box;
+$no-repeat: no-repeat;
+$heredar-color:inherit;
+
+
+/// Mixin para crear un contenedor Flexbox alineado verticalmente
+/// @group Mixins
+/// @param {String} $justify
+/// @example scss - Uso
+///   .caja { @include flex-box(center); }
+///
+@mixin flex-box($justify: flex-start) {
+    display: $start-flex;
+    align-items: $center;
+    justify-content: $justify;
+}
+
+
+
+/// Mapa de colores para generación automática de botones
+/// @group Componentes - Botones
+/// @type Map
 $btn-colors: (
   "error": $color-error,
   "warning": $color-warning,
@@ -43,136 +80,61 @@ $btn-colors: (
   "normal": $color-normal
 );
 
-//Elemento botón general
+/// Estilos base de botones
+/// @group Componentes - Botones
 .btn {
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
+  display: $block-inline;
+  text-align: $center;
+  text-decoration: $text-decoration-none;
   border-radius: $border-radius;
-  padding: 0.4rem;
-  padding-right: 0.5rem;
-  border: solid black 1px;
-  margin-left: 20px;
+  padding: $padding-button;
+  padding-right: $padding-button-right;
+  border: $borde-buttons;
+  margin-left: $margin-buttons;
 
   &:hover {
     box-shadow: $border-radius/2 $border-radius/2 $color-shadow;
   }
 
   &:active {
-    background-color: orange;
-    color: white;
+    background-color: $color-button-active;
+    color: $color-background;
   }
 }
 
-//Clase adicional que le da color
+/// Generación de modificadores de color para botones (.btn-error, etc.)
+/// @group Componentes - Botones
 @each $k, $v in $btn-colors {
   .btn-#{$k} {
     background-color: $v;
   }
 }
 
-//Estilos genreales para la tabla
-table {
-  border-collapse: collapse;
-}
-
-th,
-td {
-  border: 1px solid black;
-  padding: 1rem;
-}
-
-//Colores para los columnas
-$color-col-pares: #cccccc;
-$color-col-impares: #888888;
-
-//Función que me devuelve el color de fondo de las columnas dependiendo
-// de si es para o impar
-@function colum-color($col-number) {
-  @if ($col-number%2 == 0) {
-    @return $color-col-pares;
-  } @else {
-    @return $color-col-impares;
-  }
-}
-
-//Establezco el número máximo de columnas
-$inicio: 1;
-$fin: 10;
-
-
-@for $num from $inicio to $fin {
-  tbody tr td:nth-child(#{$num}) {
-    background-color: colum-color($num);
-  }
-}
-
-//Sistema de maquetación
-
-//Padre de cada fila
-.row {
-  display: flex;
-  flex-direction: row;
-}
-
-//Les doy un tamaño y un borde para distinguirlos
-//Sólo válida para el ejemplo
-.row > * {
-  border: 1px solid black;
-  height: 150px;
-}
-
-//Número de elementos máximos que voy a tener
-$num_elementos: 8;
-
-//Función que devuelve la anchura correspondiente al elemento
-@function anchura_col($i) {
-  @return (100 / $num_elementos)*$i ;
-}
-
-
-//Bucle para generar las clases
-@for $i from 1 through $num_elementos {
-.row > .col-#{$i} {
-    padding: 1rem;
-    width: #{anchura_col($i)}+ "%";
-  }
-}
-
-//-----------------------
-
-
+/// @group Layout
 .container{
     width: $main-container-width;
-    margin: 0px auto;
+    margin: $centrar-container;
 }
 
+/// Barra con menú principal con Flexbox
+/// @group Layout
 nav {
     background-color: $navbar-background-color;
-    padding-right: 10px;
+    padding-right: $padding-right-nav;
 
-    // El UL actúa como el contenedor principal Flex
     ul {
-        list-style: none; // Quitamos puntos de lista
-        margin: 0;
-        padding: 0;
+        list-style: $text-decoration-none;
+        margin: $margin-zero;
+        padding: $padding-zero;
         
-        // 1. Alineación horizontal de los grupos (Izquierda y Derecha)
-        display: flex; 
-        
-        // 2. Separación extrema: uno a la izq y otro a la der
-        justify-content: space-between; 
-        
-        // 3. Centrado vertical
-        align-items: center; 
+        //Usamos el mixin
+        @include flex-box($separacion-flex);
 
-        // --- GRUPO IZQUIERDA ---
         .izquierda {
-            display: flex; // Para poner los <li> en horizontal
-            align-items: center;
+            @include flex-box();
 
             li {
-                display: block; // Ya no necesitamos flex aquí dentro
+                display: $start-block;
                 padding-left: $padding-left;
                 padding-right: $padding-right;
 
@@ -186,28 +148,28 @@ nav {
                 }
 
                 a {
-                    text-decoration: none;
-                    color: inherit; // Heredar color del li
+                    text-decoration: $text-decoration-none;
+                    color: $heredar-color; // Heredar color del li
                     cursor: pointer; // Para que parezca enlace
                 }
             }
         }
 
-        // --- GRUPO DERECHA ---
         .derecha {
-            display: flex; // Para poner los botones en horizontal
-            align-items: center;
-            
-            // Los botones ya tienen margin-left en tu clase .btn, 
-            // así que se separarán solos.
+            @include flex-box();
         }
     }
 }
 
+/// Configuración para las tarjetas
+/// @group Componentes - Tarjetas
 $figure-width: 42%;
 $letra-parrafo:0.8rem;
-$imagen-altura: 150px;
+$dim-bandera: 50px;
 
+
+/// Mapa de relación País -> Imagen
+/// @group Componentes - Tarjetas
 $mapa:(
     Italia:"Italia.png",
     Francia:"Francia.png",
@@ -215,58 +177,51 @@ $mapa:(
     Alemania:"Alemania.png"
 );
 
-// Variables ajustadas para esta solución
-$figure-width: 42%; // Ya no lo usaremos para el ancho fijo
-$dim-bandera: 50px; // Tamaño del icono de la bandera
-
-// MODIFICACIÓN DEL BUCLE: Configurar la bandera como icono a la izquierda
+/// Bucle para generar las etiquetas de países con banderas
+/// @group Componentes - Tarjetas
 @each $u, $v in $mapa {
   div.#{$u} {
-    // 1. Imagen de fondo
+    
     background-image: url("../img/#{$v}");
-    background-repeat: no-repeat;
+    background-repeat: $no-repeat;
     background-size: $dim-bandera auto; 
-    background-position: left center; 
+    background-position: $left $center; 
     padding-left: $dim-bandera + 10px; 
     width: fit-content;
-    margin: 0.5rem auto;
+    margin: $margin auto;
     // 4. Estilos de caja
-    min-height: $dim-bandera; // Altura mínima para que quepa la bandera
+    min-height: $dim-bandera;
     border: $border-width solid $border-color;
-    border-radius: 6*$border-radius; // Radio más suave
-    margin-bottom: 0.5rem; // Separación con el párrafo
+    border-radius: 6*$border-radius;
+    margin-bottom: $margin;
     
-    // 5. Centrar el texto verticalmente respecto a la bandera
-    display: flex;
-    align-items: center; 
+    @include flex-box();
     
-    // Resetear márgenes del h2 dentro del figcaption si es necesario
     figcaption h2 {
-        margin: 0;
-        font-size: 1.2rem;
-        text-align: left;
+        margin: $margin-zero;
     }
   }
 }
 
-
+/// Estilos del contenedor de la tarjeta
+/// @group Componentes - Tarjetas
 figure.card{
     border: $border-width #{$border-style} $border-color;
     border-radius: $border-radius;
     display: $block-inline;
-    box-sizing: border-box;
+    box-sizing: $border-box;
     padding: $padding-left;
     padding-right: $padding-right;
     width: $figure-width;
     img{
         border-radius: 2*$border-radius;
-        width: 100%;
+        width: $width-img;
     }
 
     figcaption{
         font-size: $font-size;
         margin: $margin;
-        text-align: $text-center;
+        text-align: $center;
     }
 
     p{
@@ -277,19 +232,20 @@ figure.card{
 $num: 1;
 $color-list: rgb(134, 254, 112), rgb(1, 114, 212), orange, rgb(210, 75, 255);
 
+/// Asigna color de fondo a las tarjetas según su índice
+/// @group Lógica
 @while $num < 5 {
-    // Usamos nth-of-type para ser más específicos con las etiquetas figure
     figure:nth-of-type(#{$num}){
-        color: rgb(0, 0, 0);
-        // CAMBIO AQUÍ: quitar 'list.'
+        color: $color-base;
         background-color: nth($color-list, $num); 
     }
     $num: $num + 1 ;
 }
 
+/// Asigna color de texto a los elementos de lista según su índice
+/// @group Lógica
 @for $i from 1 to 5 {
     li:nth-of-type(#{$i}){
-        // CAMBIO AQUÍ: quitar 'list.'
         color: nth($color-list, $i);
     }
 }
