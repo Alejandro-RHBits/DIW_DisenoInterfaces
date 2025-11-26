@@ -1,46 +1,316 @@
-header {
-  background-color: white;
-  color: black;
+.btn {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.4rem;
+  padding: 0.4rem;
+  padding-right: 0.5rem;
+  border: solid black 1px;
+  margin-left: 20px;
+}
+.btn:hover {
+  box-shadow: 0.2rem 0.2rem #888;
+}
+.btn:active {
+  background-color: orange;
+  color: white;
 }
 
-td:nth-child(1) {
-  color: red;
-  background-color: #0f0;
+.btn-error {
+  background-color: #ff0000;
 }
 
-td:nth-child(2) {
-  color: red;
-  background-color: #00f;
+.btn-warning {
+  background-color: rgb(239, 241, 120);
 }
 
-td:nth-child(3) {
-  color: red;
+.btn-accepted {
+  background-color: rgb(55, 138, 0);
+}
+
+.btn-normal {
+  background-color: rgb(0, 110, 255);
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+tbody tr td:nth-child(1) {
+  background-color: #888888;
+}
+
+tbody tr td:nth-child(2) {
+  background-color: #cccccc;
+}
+
+tbody tr td:nth-child(3) {
+  background-color: #888888;
+}
+
+tbody tr td:nth-child(4) {
+  background-color: #cccccc;
+}
+
+tbody tr td:nth-child(5) {
+  background-color: #888888;
+}
+
+tbody tr td:nth-child(6) {
+  background-color: #cccccc;
+}
+
+tbody tr td:nth-child(7) {
+  background-color: #888888;
+}
+
+tbody tr td:nth-child(8) {
+  background-color: #cccccc;
+}
+
+tbody tr td:nth-child(9) {
+  background-color: #888888;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.row > * {
+  border: 1px solid black;
+  height: 150px;
+}
+
+.row > .col-1 {
+  padding: 1rem;
+  width: 12.5%;
+}
+
+.row > .col-2 {
+  padding: 1rem;
+  width: 25%;
+}
+
+.row > .col-3 {
+  padding: 1rem;
+  width: 37.5%;
+}
+
+.row > .col-4 {
+  padding: 1rem;
+  width: 50%;
+}
+
+.row > .col-5 {
+  padding: 1rem;
+  width: 62.5%;
+}
+
+.row > .col-6 {
+  padding: 1rem;
+  width: 75%;
+}
+
+.row > .col-7 {
+  padding: 1rem;
+  width: 87.5%;
+}
+
+.row > .col-8 {
+  padding: 1rem;
+  width: 100%;
+}
+
+.container {
+  width: 80%;
+  margin: 0px auto;
+}
+
+nav {
+  background-color: rgb(84, 189, 66);
+  padding-right: 10px;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav ul .izquierda {
+  display: flex;
+  align-items: center;
+}
+nav ul .izquierda li {
+  display: block;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+nav ul .izquierda li.active {
+  color: #ffffff;
+  font-weight: bolder;
+}
+nav ul .izquierda li.hover {
+  color: #ffffff;
+}
+nav ul .izquierda li a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+nav ul .derecha {
+  display: flex;
+  align-items: center;
+}
+
+div.Italia {
+  background-image: url("../img/Italia.png");
+  background-repeat: no-repeat;
+  background-size: 50px auto;
+  background-position: left center;
+  padding-left: 60px;
+  width: fit-content;
+  margin: 0.5rem auto;
+  min-height: 50px;
+  border: 0.1rem solid #333;
+  border-radius: 2.4rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+div.Italia figcaption h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+div.Francia {
+  background-image: url("../img/Francia.png");
+  background-repeat: no-repeat;
+  background-size: 50px auto;
+  background-position: left center;
+  padding-left: 60px;
+  width: fit-content;
+  margin: 0.5rem auto;
+  min-height: 50px;
+  border: 0.1rem solid #333;
+  border-radius: 2.4rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+div.Francia figcaption h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+div.Espana {
+  background-image: url("../img/Espana.png");
+  background-repeat: no-repeat;
+  background-size: 50px auto;
+  background-position: left center;
+  padding-left: 60px;
+  width: fit-content;
+  margin: 0.5rem auto;
+  min-height: 50px;
+  border: 0.1rem solid #333;
+  border-radius: 2.4rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+div.Espana figcaption h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+div.Alemania {
+  background-image: url("../img/Alemania.png");
+  background-repeat: no-repeat;
+  background-size: 50px auto;
+  background-position: left center;
+  padding-left: 60px;
+  width: fit-content;
+  margin: 0.5rem auto;
+  min-height: 50px;
+  border: 0.1rem solid #333;
+  border-radius: 2.4rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+div.Alemania figcaption h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+figure.card {
+  border: 0.1rem solid #333;
+  border-radius: 0.4rem;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 1rem;
+  padding-right: 1rem;
+  width: 42%;
+}
+figure.card img {
+  border-radius: 0.8rem;
+  width: 100%;
+}
+figure.card figcaption {
+  font-size: 1rem;
+  margin: 0.5rem;
+  text-align: center;
+}
+figure.card p {
+  font-size: 0.8rem;
+}
+
+figure:nth-of-type(1) {
+  color: rgb(0, 0, 0);
+  background-color: rgb(134, 254, 112);
+}
+
+figure:nth-of-type(2) {
+  color: rgb(0, 0, 0);
+  background-color: rgb(1, 114, 212);
+}
+
+figure:nth-of-type(3) {
+  color: rgb(0, 0, 0);
   background-color: orange;
 }
 
-td:nth-child(4) {
-  color: red;
-  background-color: #ccc;
+figure:nth-of-type(4) {
+  color: rgb(0, 0, 0);
+  background-color: rgb(210, 75, 255);
 }
 
-p:nth-of-type(1) {
-  color: red;
-  background-color: #0f0;
+li:nth-of-type(1) {
+  color: rgb(134, 254, 112);
 }
 
-p:nth-of-type(2) {
-  color: red;
-  background-color: #00f;
+li:nth-of-type(2) {
+  color: rgb(1, 114, 212);
 }
 
-p:nth-of-type(3) {
-  color: red;
-  background-color: orange;
+li:nth-of-type(3) {
+  color: orange;
 }
 
-p:nth-of-type(4) {
-  color: red;
-  background-color: #ccc;
+li:nth-of-type(4) {
+  color: rgb(210, 75, 255);
 }
 
 /*# sourceMappingURL=style.css.map */
