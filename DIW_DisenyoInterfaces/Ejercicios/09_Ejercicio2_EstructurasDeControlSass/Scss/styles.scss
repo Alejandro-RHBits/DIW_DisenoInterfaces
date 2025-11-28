@@ -1,0 +1,252 @@
+/// @author Alejandro Ríos
+/// @access public
+////
+
+/// @group Configuración - Colores
+/// @type Color
+$color-background: #ffffff;
+$color-button-active: orange;
+$color-base: #333;
+$navbar-background-color:rgb(84, 189, 66);
+$navbar-color-hover: $color-background;
+
+//Colores de botones
+$color-error: #ff0000;
+$color-warning: rgb(239, 241, 120);
+$color-accepted: rgb(55, 138, 0);
+$color-normal: rgb(0, 110, 255);
+$color-shadow: #888;
+
+/// @group Configuración - Layout
+/// @type Number | String | Color
+$border-color:$color-base;
+$border-style:"solid";
+$border-width:0.1rem;
+$main-container-width: 80%;
+$font-size: 1rem;
+$margin:0.5rem;
+$border-radius: 0.4rem;
+
+//Padding, borde y margin Botones
+$padding-button:0.4rem;
+$padding-button-right:0.5rem;
+$borde-buttons:solid black 1px;
+$margin-buttons:20px;
+
+//Ancho de imagenes
+$width-img:100%;
+
+/// Variables auxiliares para propiedades CSS estándar
+/// @group Helpers
+$block-inline: inline-block;
+$padding-left: 1rem;
+$padding-right: 1rem;
+$padding-right-nav:7rem;
+$center: center;
+$left: left;
+$text-decoration-none: none;
+$margin-zero:0;
+$padding-zero:0;
+$centrar-container: 0 auto;
+$start-flex: flex;
+$separacion-flex: space-between;
+$start-block: block;
+$border-box: border-box;
+$no-repeat: no-repeat;
+$heredar-color:inherit;
+
+
+/// Mixin para crear un contenedor Flexbox alineado verticalmente
+/// @group Mixins
+/// @param {String} $justify
+/// @example scss - Uso
+///   .caja { @include flex-box(center); }
+///
+@mixin flex-box($justify: flex-start) {
+    display: $start-flex;
+    align-items: $center;
+    justify-content: $justify;
+}
+
+
+
+/// Mapa de colores para generación automática de botones
+/// @group Componentes - Botones
+/// @type Map
+$btn-colors: (
+  "error": $color-error,
+  "warning": $color-warning,
+  "accepted": $color-accepted,
+  "normal": $color-normal
+);
+
+/// Estilos base de botones
+/// @group Componentes - Botones
+.btn {
+  display: $block-inline;
+  text-align: $center;
+  text-decoration: $text-decoration-none;
+  border-radius: $border-radius;
+  padding: $padding-button;
+  padding-right: $padding-button-right;
+  border: $borde-buttons;
+  margin-left: $margin-buttons;
+
+  &:hover {
+    box-shadow: $border-radius/2 $border-radius/2 $color-shadow;
+  }
+
+  &:active {
+    background-color: $color-button-active;
+    color: $color-background;
+  }
+}
+
+/// Generación de modificadores de color para botones (.btn-error, etc.)
+/// @group Componentes - Botones
+@each $k, $v in $btn-colors {
+  .btn-#{$k} {
+    background-color: $v;
+  }
+}
+
+/// @group Layout
+.container{
+    width: $main-container-width;
+    margin: $centrar-container;
+}
+
+/// Barra con menú principal con Flexbox
+/// @group Layout
+nav {
+    background-color: $navbar-background-color;
+    padding-right: $padding-right-nav;
+
+    ul {
+        list-style: $text-decoration-none;
+        margin: $margin-zero;
+        padding: $padding-zero;
+        
+        //Usamos el mixin
+        @include flex-box($separacion-flex);
+
+        .izquierda {
+            @include flex-box();
+
+            li {
+                display: $start-block;
+                padding-left: $padding-left;
+                padding-right: $padding-right;
+
+                &.active {
+                    color: $navbar-color-hover;
+                    font-weight: bolder;
+                }
+
+                &.hover {
+                    color: $navbar-color-hover;
+                }
+
+                a {
+                    text-decoration: $text-decoration-none;
+                    color: $heredar-color; // Heredar color del li
+                    cursor: pointer; // Para que parezca enlace
+                }
+            }
+        }
+
+        .derecha {
+            @include flex-box();
+        }
+    }
+}
+
+/// Configuración para las tarjetas
+/// @group Componentes - Tarjetas
+$figure-width: 42%;
+$letra-parrafo:0.8rem;
+$dim-bandera: 50px;
+
+
+/// Mapa de relación País -> Imagen
+/// @group Componentes - Tarjetas
+$mapa:(
+    Italia:"Italia.png",
+    Francia:"Francia.png",
+    Espana:"Espana.png",
+    Alemania:"Alemania.png"
+);
+
+/// Bucle para generar las etiquetas de países con banderas
+/// @group Componentes - Tarjetas
+@each $u, $v in $mapa {
+  div.#{$u} {
+    
+    background-image: url("../img/#{$v}");
+    background-repeat: $no-repeat;
+    background-size: $dim-bandera auto; 
+    background-position: $left $center; 
+    padding-left: $dim-bandera + 10px; 
+    width: fit-content;
+    margin: $margin auto;
+    // 4. Estilos de caja
+    min-height: $dim-bandera;
+    border: $border-width solid $border-color;
+    border-radius: 6*$border-radius;
+    margin-bottom: $margin;
+    
+    @include flex-box();
+    
+    figcaption h2 {
+        margin: $margin-zero;
+    }
+  }
+}
+
+/// Estilos del contenedor de la tarjeta
+/// @group Componentes - Tarjetas
+figure.card{
+    border: $border-width #{$border-style} $border-color;
+    border-radius: $border-radius;
+    display: $block-inline;
+    box-sizing: $border-box;
+    padding: $padding-left;
+    padding-right: $padding-right;
+    width: $figure-width;
+    img{
+        border-radius: 2*$border-radius;
+        width: $width-img;
+    }
+
+    figcaption{
+        font-size: $font-size;
+        margin: $margin;
+        text-align: $center;
+    }
+
+    p{
+        font-size: $letra-parrafo;
+    }
+}
+
+$num: 1;
+$color-list: rgb(134, 254, 112), rgb(1, 114, 212), orange, rgb(210, 75, 255);
+
+/// Asigna color de fondo a las tarjetas según su índice
+/// @group Lógica
+@while $num < 5 {
+    figure:nth-of-type(#{$num}){
+        color: $color-base;
+        background-color: nth($color-list, $num); 
+    }
+    $num: $num + 1 ;
+}
+
+/// Asigna color de texto a los elementos de lista según su índice
+/// @group Lógica
+@for $i from 1 to 5 {
+    li:nth-of-type(#{$i}){
+        color: nth($color-list, $i);
+    }
+}
+

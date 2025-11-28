@@ -1,0 +1,487 @@
+@charset "UTF-8";
+/* --- 1. VARIABLES --- */
+/* --- 2. MIXINS --- */
+/* --- 3. RESET Y BASE --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Neue Montreal", sans-serif;
+  background-color: #F1F0EA;
+  color: #000000;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Botones */
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.07em;
+  text-align: center;
+  cursor: pointer;
+}
+.btn.primary {
+  background-color: #C55A26;
+  color: #F5F5F5;
+}
+.btn.secondary {
+  background-color: #E3BE86;
+  color: #000000;
+}
+
+/* --- 4. HEADER Y HERO --- */
+header.hero {
+  background-image: linear-gradient(to right, rgba(17, 28, 44, 0.8), rgba(17, 28, 44, 0.4)), url("../assets/img/header-background.jpg");
+  color: #F1F0EA;
+  padding-bottom: 80px;
+  position: relative;
+}
+header.hero .top-bar {
+  background-color: #112C50;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+  /* Contenedor interno que usa el Grid de 12 columnas */
+}
+header.hero .top-bar-content {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  max-width: 1440px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  grid-column: 1/-1;
+}
+header.hero .top-bar-content > a:first-child {
+  margin-right: auto;
+}
+header.hero nav {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  max-width: 1440px;
+  width: 90%;
+  margin: 0 auto;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 60px;
+}
+header.hero nav .logo {
+  grid-column: 1/4;
+}
+header.hero nav .nav-links {
+  grid-column: 6/13;
+  display: flex;
+  justify-content: flex-end;
+  gap: 40px;
+  list-style: none;
+}
+header.hero nav .nav-links a {
+  font-weight: 700;
+  color: #F5F5F5;
+}
+header.hero .hero-content {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  max-width: 1440px;
+  width: 90%;
+  margin: 0 auto;
+}
+header.hero .hero-content > div, header.hero .hero-content > p, header.hero .hero-content > h1, header.hero .hero-content .hero-buttons {
+  grid-column: 2/8;
+}
+header.hero .hero-content h1 {
+  font-family: "Reckless Neue", serif;
+  font-size: 55px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+header.hero .hero-content .hero-buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* --- 5. SECCIÓN SOBRE NOSOTROS (About) --- */
+.about {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  max-width: 1440px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 100px 0;
+  align-items: center;
+}
+.about article {
+  grid-column: 2/7;
+}
+.about article h2 {
+  font-family: "Reckless Neue", serif;
+  font-size: 36px;
+  margin-bottom: 30px;
+  position: relative;
+  padding-top: 20px;
+}
+.about article h2::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 64px;
+  height: 8px;
+  background-color: #126F8D;
+}
+.about article p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+.about aside {
+  grid-column: 8/12;
+}
+.about aside img {
+  border-radius: 31px;
+}
+
+/* --- 6. SERVICIOS --- */
+.services {
+  background-color: #112C50;
+  color: #F5F5F5;
+  padding: 100px 0;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  max-width: 1440px;
+  width: 90%;
+  margin: 0 auto;
+}
+.services h3 {
+  grid-column: 3/11;
+  font-family: "Reckless Neue", serif;
+  font-size: 52px;
+  margin-bottom: 20px;
+}
+.services p {
+  grid-column: 4/10;
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+.services a.btn {
+  grid-column: 5/9;
+  justify-self: center;
+}
+
+/* --- 7. EQUIPO (Team) --- */
+.team {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  max-width: 1440px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+.team h3 {
+  grid-column: 2/6;
+  font-family: "Reckless Neue", serif;
+  font-size: 36px;
+  margin-bottom: 50px;
+  position: relative;
+  padding-top: 20px;
+}
+.team h3::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 64px;
+  height: 8px;
+  background-color: #126F8D;
+}
+.team .team-members {
+  grid-column: 2/12;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.team .team-members article {
+  background: #F5F5F5;
+  padding-bottom: 20px;
+}
+.team .team-members article h4 {
+  font-family: "Reckless Neue", serif;
+  font-size: 20px;
+  margin: 15px 0 5px 15px;
+}
+.team .team-members article p {
+  margin-left: 15px;
+  font-size: 14px;
+}
+
+/* --- 8. TESTIMONIOS --- */
+.testimonials {
+  background-color: #112C50;
+  color: #FFFFFF;
+  padding: 100px 0;
+}
+.testimonials .wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  max-width: 1440px;
+  width: 90%;
+  margin: 0 auto;
+}
+.testimonials h3 {
+  grid-column: 2/8;
+  font-family: "Reckless Neue", serif;
+  font-size: 36px;
+  margin-bottom: 50px;
+  position: relative;
+  padding-top: 20px;
+}
+.testimonials h3::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 64px;
+  height: 8px;
+  background-color: #126F8D;
+}
+.testimonials h3::before {
+  background-color: #126F8D;
+}
+.testimonials .testimonials-container {
+  grid-column: 2/12;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.testimonials .testimonials-container blockquote {
+  background-color: #F1F0EA;
+  color: #000000;
+  padding: 30px;
+  border-radius: 4px;
+}
+.testimonials .testimonials-container blockquote p {
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.testimonials .testimonials-container blockquote footer {
+  font-weight: bold;
+  text-align: right;
+}
+
+/* --- 9. FORMULARIO DE CONTACTO --- */
+.contact-form {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  max-width: 1440px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+.contact-form .intro-text-wrapper {
+  grid-column: 2/5;
+}
+.contact-form .intro-text-wrapper h3 {
+  font-family: "Reckless Neue", serif;
+  font-size: 36px;
+  margin-bottom: 30px;
+  position: relative;
+  padding-top: 20px;
+}
+.contact-form .intro-text-wrapper h3::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 64px;
+  height: 8px;
+  background-color: #126F8D;
+}
+.contact-form .intro-text-wrapper p {
+  font-size: 18px;
+}
+.contact-form form {
+  grid-column: 6/12;
+  background-color: #D9D9D9;
+  padding: 40px;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.contact-form form input, .contact-form form textarea {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background: #FFFFFF;
+}
+.contact-form form textarea {
+  grid-column: 1/-1;
+  height: 120px;
+  resize: none;
+}
+.contact-form form button {
+  grid-column: 1/-1;
+  justify-self: start;
+  border: none;
+}
+
+/* --- 10. UBICACIÓN --- */
+.location {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  max-width: 1440px;
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+.location h3 {
+  grid-column: 2/6;
+  font-family: "Reckless Neue", serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+  position: relative;
+  padding-top: 20px;
+}
+.location h3::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 64px;
+  height: 8px;
+  background-color: #126F8D;
+}
+.location p {
+  grid-column: 2/6;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.location .map {
+  grid-column: 7/12;
+  height: 400px;
+  background-color: #ddd;
+}
+.location .map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* --- 11. FOOTER --- */
+footer {
+  background-color: #112C50;
+  color: #F1F0EA;
+  padding: 80px 0;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  max-width: 1440px;
+  width: 90%;
+  margin: 0 auto;
+}
+footer .footer-info {
+  grid-column: 2/4;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+footer .footer-nav {
+  grid-column: 5/7;
+}
+footer .footer-nav h4 {
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+footer .footer-nav ul li {
+  margin-bottom: 8px;
+}
+footer .footer-logo {
+  grid-column: 8/10;
+}
+footer .footer-logo h1 {
+  font-family: "Reckless Neue", serif;
+  margin-bottom: 15px;
+}
+footer .footer-logo .social-media {
+  display: flex;
+  gap: 10px;
+}
+footer .newsletter {
+  grid-column: 11/13;
+}
+footer .newsletter input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 20px;
+  border: 1px solid #EDEDED;
+  background: transparent;
+  color: white;
+}
+
+/* --- 12. RESPONSIVE (MEDIA QUERIES) --- */
+/* Adaptación del Grid para pantallas móviles */
+@media (max-width: 768px) {
+  header.hero .hero-content > *,
+  .about article,
+  .about aside,
+  .services h3, .services p, .services a.btn,
+  .team h3, .team .team-members,
+  .testimonials h3, .testimonials .testimonials-container,
+  .contact-form .intro-text-wrapper, .contact-form form,
+  .location h3, .location p, .location .map,
+  footer > div {
+    grid-column: 1/-1 !important;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+  nav .nav-links {
+    margin-top: 20px;
+    justify-content: center;
+  }
+  .team .team-members,
+  .testimonials .testimonials-container {
+    grid-template-columns: 1fr;
+  }
+  .contact-form form {
+    grid-template-columns: 1fr;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

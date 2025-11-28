@@ -1,0 +1,218 @@
+.btn {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.4rem;
+  padding: 0.4rem;
+  padding-right: 0.5rem;
+  border: solid black 1px;
+  margin-left: 20px;
+}
+.btn:hover {
+  box-shadow: 0.2rem 0.2rem #888;
+}
+.btn:active {
+  background-color: orange;
+  color: #ffffff;
+}
+
+.btn-error {
+  background-color: #ff0000;
+}
+
+.btn-warning {
+  background-color: rgb(239, 241, 120);
+}
+
+.btn-accepted {
+  background-color: rgb(55, 138, 0);
+}
+
+.btn-normal {
+  background-color: rgb(0, 110, 255);
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+nav {
+  background-color: rgb(84, 189, 66);
+  padding-right: 7rem;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav ul .izquierda {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+nav ul .izquierda li {
+  display: block;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+nav ul .izquierda li.active {
+  color: #ffffff;
+  font-weight: bolder;
+}
+nav ul .izquierda li.hover {
+  color: #ffffff;
+}
+nav ul .izquierda li a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+nav ul .derecha {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+div.Italia {
+  background-image: url("../img/Italia.png");
+  background-repeat: no-repeat;
+  background-size: 50px auto;
+  background-position: left center;
+  padding-left: 60px;
+  width: fit-content;
+  margin: 0.5rem auto;
+  min-height: 50px;
+  border: 0.1rem solid #333;
+  border-radius: 2.4rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+div.Italia figcaption h2 {
+  margin: 0;
+}
+
+div.Francia {
+  background-image: url("../img/Francia.png");
+  background-repeat: no-repeat;
+  background-size: 50px auto;
+  background-position: left center;
+  padding-left: 60px;
+  width: fit-content;
+  margin: 0.5rem auto;
+  min-height: 50px;
+  border: 0.1rem solid #333;
+  border-radius: 2.4rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+div.Francia figcaption h2 {
+  margin: 0;
+}
+
+div.Espana {
+  background-image: url("../img/Espana.png");
+  background-repeat: no-repeat;
+  background-size: 50px auto;
+  background-position: left center;
+  padding-left: 60px;
+  width: fit-content;
+  margin: 0.5rem auto;
+  min-height: 50px;
+  border: 0.1rem solid #333;
+  border-radius: 2.4rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+div.Espana figcaption h2 {
+  margin: 0;
+}
+
+div.Alemania {
+  background-image: url("../img/Alemania.png");
+  background-repeat: no-repeat;
+  background-size: 50px auto;
+  background-position: left center;
+  padding-left: 60px;
+  width: fit-content;
+  margin: 0.5rem auto;
+  min-height: 50px;
+  border: 0.1rem solid #333;
+  border-radius: 2.4rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+div.Alemania figcaption h2 {
+  margin: 0;
+}
+
+figure.card {
+  border: 0.1rem solid #333;
+  border-radius: 0.4rem;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 1rem;
+  padding-right: 1rem;
+  width: 42%;
+}
+figure.card img {
+  border-radius: 0.8rem;
+  width: 100%;
+}
+figure.card figcaption {
+  font-size: 1rem;
+  margin: 0.5rem;
+  text-align: center;
+}
+figure.card p {
+  font-size: 0.8rem;
+}
+
+figure:nth-of-type(1) {
+  color: #333;
+  background-color: rgb(134, 254, 112);
+}
+
+figure:nth-of-type(2) {
+  color: #333;
+  background-color: rgb(1, 114, 212);
+}
+
+figure:nth-of-type(3) {
+  color: #333;
+  background-color: orange;
+}
+
+figure:nth-of-type(4) {
+  color: #333;
+  background-color: rgb(210, 75, 255);
+}
+
+li:nth-of-type(1) {
+  color: rgb(134, 254, 112);
+}
+
+li:nth-of-type(2) {
+  color: rgb(1, 114, 212);
+}
+
+li:nth-of-type(3) {
+  color: orange;
+}
+
+li:nth-of-type(4) {
+  color: rgb(210, 75, 255);
+}
+
+/*# sourceMappingURL=style.css.map */
