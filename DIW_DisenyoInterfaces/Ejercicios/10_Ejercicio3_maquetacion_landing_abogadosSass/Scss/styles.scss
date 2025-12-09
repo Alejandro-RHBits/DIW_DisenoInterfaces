@@ -8,6 +8,8 @@ $c-btn-orange: #C55A26;
 $c-btn-gold: #E3BE86;
 $c-text-main: #000000;
 $c-sky-blue:rgb(185, 202, 222);
+$c-blue-formulario:#597081;
+$c-gray-formulario:#D9D9D9;
 
 $font-serif: 'Reckless Neue', serif;
 $font-sans: 'Neue Montreal', sans-serif;
@@ -84,6 +86,13 @@ img {
   &.secondary {
     background-color: $c-btn-orange;
     color: $c-light-gray;
+  }
+
+  &.formulario {
+    border-radius: 30px;
+    padding: 13px 30px;
+    color: $c-text-main;
+    border: 1px solid $c-text-main;
   }
   
   
@@ -299,17 +308,16 @@ header.hero {
     border-radius: 25px;
 
     article {
-      padding-bottom: 20px;
+      padding-bottom: 15px;
       
       h4 {
         font-family: $font-serif;
         font-size: 20px;
         font-weight: 100;
-        margin: 15px 0 5px 15px;
+        margin: 15px 0 5px 0;
       }
 
       p {
-        margin-left: 15px;
         font-size: 14px;
       }
     }
@@ -341,20 +349,26 @@ header.hero {
     }
 
     .testimonials-container {
-      grid-column: 1 / 12;
+      grid-column: 1 / 15;
       display: grid;
       grid-template-columns: repeat(3, 1fr); // 3 columnas iguales
-      gap: 160px;
+      gap: 180px;
 
       blockquote {
         background-color: $c-beige-bg;
         color: $c-text-main;
         padding: 30px;
-        
+
         p {
-          font-style: italic;
+          font-size: 15px;
           font-weight: 20;
+          line-height: 1.6;
           margin-bottom: 20px;
+        }
+
+        span{
+          font-weight: 100;
+          font-size: 15;
         }
       }
     }
@@ -368,7 +382,7 @@ header.hero {
 
   // Texto introductorio a la izquierda
   .intro-text-wrapper {
-    grid-column: 2 / 5;
+    grid-column: 1 / 8;
     
     h3 {
       font-family: $font-serif;
@@ -386,32 +400,70 @@ header.hero {
 
   // Formulario a la derecha
   form {
-    grid-column: 6 / 12;
-    background-color: #D9D9D9;
+    grid-column: 2 / 12;
     padding: 40px;
     border-radius: 4px;
+    color: $c-blue-formulario;
     
     display: grid;
-    grid-template-columns: 1fr 1fr; // Grid interno de 2 columnas para inputs
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
 
-    input, textarea {
-      width: 100%;
-      padding: 15px;
-      border: none;
-      background: $c-white;
+    .izquierda, .derecha {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      padding: 5px 10px;
+      align-items: center;
+      background-color: $c-gray-formulario;
+
+      label {
+        min-width: 70px;
+        white-space: nowrap;
+        font-weight: 500;
+      }
+
+      input {
+        flex: 1;
+        width: auto;
+        padding: 15px;
+        border: none;
+        background: $c-gray-formulario;
+      }
     }
 
-    textarea {
-      grid-column: 1 / -1; // Ocupa todo el ancho del form
-      height: 120px;
-      resize: none;
-    }
+    .abajo {
+      grid-column: 1 / -1; // Ocupa todo el ancho
+      background-color: $c-gray-formulario;
+      padding: 15px; // Un poco más de padding para que respire
+      
+      display: flex;
+      flex-direction: column; 
+      gap: 10px;
 
+      label {
+        font-weight: 500;
+        align-self: flex-start; // Label a la izquierda
+      }
+
+      textarea {
+        width: 100%;
+        height: 120px;
+        resize: none;
+        border: none;
+        padding: 15px;
+        background: $c-gray-formulario;
+        font-family: inherit; // Para que use la misma fuente
+      }
+    }
     button {
-      grid-column: 1 / -1;
-      justify-self: start;
+      grid-column: 1 / -1; // Importante: Ocupa todo el ancho de la fila del grid
+      justify-self: end;   // Se alinea al final (derecha) de esa fila
+      
       border: none;
+      margin-top: 10px;
+      // Tus estilos .btn.formulario ya aplican el color y padding
+      color: $c-white; // Asegúrate de que el texto sea blanco si el fondo es negro
     }
   }
 }
@@ -422,8 +474,11 @@ header.hero {
   padding-bottom: 100px;
 
   h3 {
-    grid-column: 2 / 6;
+    grid-column: 1 / 5;
+    grid-row: 1;
+
     font-family: $font-serif;
+    font-weight: 20;
     font-size: 36px;
     margin-bottom: 20px;
 
@@ -432,13 +487,17 @@ header.hero {
   }
 
   p {
-    grid-column: 2 / 6;
+    grid-column: 1 / 5;
+    grid-row: 2;
+
     font-size: 24px;
     margin-bottom: 20px;
   }
 
   .map {
-    grid-column: 7 / 12;
+    grid-column: 4 / 12;
+    grid-row: 1/span 3;
+
     height: 400px;
     background-color: #ddd; // Placeholder si no carga el iframe
     
