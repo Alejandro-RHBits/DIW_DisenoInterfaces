@@ -1,5 +1,6 @@
 /* --- 1. VARIABLES --- */
 $c-dark-blue: #112C50;
+$c-blue-header-claro:rgba(255, 255, 255, 0.1);
 $c-beige-bg: #F1F0EA;
 $c-white: #FFFFFF;
 $c-light-gray: #F5F5F5;
@@ -11,38 +12,35 @@ $c-sky-blue:rgb(185, 202, 222);
 $c-blue-formulario:#597081;
 $c-gray-formulario:#D9D9D9;
 
+
 $font-serif: 'Reckless Neue', serif;
 $font-sans: 'Neue Montreal', sans-serif;
 
-/* --- 2. MIXINS --- */
 
-// Mixin para la condición del rectángulo azul decorativo
-@mixin blue-decoration {
+@mixin linea-decoracion {
   position: relative;
-  padding-top: 20px; // Espacio para que no se solape con el texto anterior
+  padding-top: 20px;
 
   &::before {
     content: "";
     position: absolute;
-    top: -10px; // Ajuste para situarlo encima del texto
+    top: -10px;
     left: 0;
-    width: 64px; // Ancho según tu diseño original
-    height: 8px; // Alto según tu diseño original
+    width: 64px;
+    height: 8px;
     background-color: $c-accent-blue;
   }
 }
 
-// Mixin para el Grid de 12 columnas (Condición 1)
 @mixin grid-12 {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 20px;
-  max-width: 1440px; // Ancho máximo del diseño
-  width: 90%; // Margen lateral de seguridad
+  max-width: 1440px;
+  width: 90%;
   margin: 0 auto;
 }
 
-/* --- 3. RESET Y BASE --- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -98,10 +96,10 @@ img {
   
 }
 
-/* --- 4. HEADER Y HERO --- */
 header.hero {
 
   background-image: url('../assets/img/header-background.jpg');
+  background-repeat: no-repeat;
   color: $c-beige-bg;
   padding-bottom: 80px;
   position: relative;
@@ -109,19 +107,17 @@ header.hero {
   .top-bar {
     background-color: $c-dark-blue;
     padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid $c-blue-header-claro;
     font-size: 14px;
 
-    /* Contenedor interno que usa el Grid de 12 columnas */
     &-content {
         @include grid-12;
         
         // Sobrescribimos el display para alinear los hijos directos
         display: flex; 
         align-items: center; 
-        grid-column: 1 / -1; // Aseguramos que el contenedor flex ocupe las 12 columnas
+        grid-column: 1 / -1; 
 
-        // 1. EL EMAIL (Primer elemento)
         > a:first-child {
         margin-right: auto;
         // Esto hace que el email se quede a la izquierda y empuje
@@ -137,11 +133,11 @@ header.hero {
         padding-bottom: 60px;
 
         .logo {
-        grid-column: 1 / 4; // Logo a la izquierda
+        grid-column: 1 / 4;
         }
 
         .nav-links {
-        grid-column: 6 / 13; // Menú a la derecha
+        grid-column: 6 / 13;
         display: flex;
         justify-content: flex-end;
         gap: 40px;
@@ -154,14 +150,12 @@ header.hero {
         }
     }
 
-    // Contenido principal del Hero usando Grid
     .hero-content {
         @include grid-12;
         
-        // Contenedor interno para el texto
         > h1, .hero-buttons {
           font-weight: 50;
-          grid-column: 1 / 6; // Del la columna 2 a la 2
+          grid-column: 1 / 6;
         }
 
         >div, > p, .hero-buttons{
@@ -194,14 +188,12 @@ header.hero {
     }
 }
 
-/* --- 5. SECCIÓN SOBRE NOSOTROS (About) --- */
 .about {
   @include grid-12;
   padding: 100px 0;
   align-items: center;
 
   article {
-    // Colocamos el texto en las primeras 6 columnas
     grid-column: 2 / 6;
 
     h2 {
@@ -210,8 +202,7 @@ header.hero {
       font-size: 36px;
       margin-bottom: 30px;
       
-      // APLICANDO EL MIXIN DECORATIVO AQUÍ
-      @include blue-decoration;
+      @include linea-decoracion;
     }
 
     p {
@@ -226,7 +217,6 @@ header.hero {
   }
 
   aside {
-    // Colocamos la imagen en las columnas de la derecha
     grid-column: 7 / 12;
     
     img {
@@ -235,9 +225,8 @@ header.hero {
   }
 }
 
-/* --- 6. SERVICIOS --- */
 .services {
-  background-color: $c-dark-blue; // Fallback
+  background-color: $c-dark-blue;
   background-image: url('../assets/img/techo-cristal.jpg');
   background-repeat: no-repeat;
   color: $c-light-gray;
@@ -249,7 +238,7 @@ header.hero {
   }
 
   h3 {
-    grid-column: 3 / 11; // Centrado
+    grid-column: 3 / 11;
     font-family: $font-serif;
     font-weight: 100;
     font-size: 52px;
@@ -257,32 +246,31 @@ header.hero {
   }
 
   p {
-    grid-column: 4 / 10; // Más estrecho para lectura
+    grid-column: 4 / 10;
     font-size: 22px;
   }
 
   a.btn {
     grid-column: 5 / 9;
-    justify-self: center; // Centrar el botón en su celda grid
+    justify-self: center;
   }
 }
 
-/* --- 7. EQUIPO (Team) --- */
+
 .team {
   @include grid-12;
   padding: 100px 0;
   align-items: start;
 
   h3{
-    grid-column: 1 / 4; // Título a la izquierda
+    grid-column: 1 / 4;
     grid-row: 1;
     font-family: $font-serif;
     font-weight: 100;
     font-size: 40px;
     margin-bottom: 50px;
 
-    // APLICANDO EL MIXIN DECORATIVO
-    @include blue-decoration;
+    @include linea-decoracion;
   }
 
   a.btn{
@@ -292,16 +280,15 @@ header.hero {
   }
 
   p{
-    grid-column: 1 / 4; // Más estrecho para lectura
+    grid-column: 1 / 4;
     font-size: 22px;
   }
 
   .team-members {
     background-color: $c-sky-blue;
-    grid-column: 5 / 13; // Ocupa casi todo el ancho
-    grid-row: 1 / span 3; // Ocupa tres filas de alto, organizando el boton con el titulo
+    grid-column: 5 / 13;
+    grid-row: 1 / span 3;
     display: grid;
-    // Sub-grid para las tarjetas de los miembros
     grid-template-columns: repeat(3, 1fr); 
     gap: 30px;
     padding: 50px;
@@ -324,7 +311,6 @@ header.hero {
   }
 }
 
-/* --- 8. TESTIMONIOS --- */
 .testimonials{
   background-color: $c-dark-blue;
   color: $c-white;
@@ -339,13 +325,7 @@ header.hero {
       font-size: 36px;
       margin-bottom: 50px;
       
-      // APLICANDO EL MIXIN DECORATIVO
-      @include blue-decoration;
-      
-      // Sobrescribimos el color del pseudo-elemento si es necesario para fondo oscuro
-      &::before {
-        background-color: $c-accent-blue; 
-      }
+      @include linea-decoracion;
     }
 
     .testimonials-container {
@@ -375,12 +355,10 @@ header.hero {
   }
 }
 
-/* --- 9. FORMULARIO DE CONTACTO --- */
 .contact-form {
   @include grid-12;
   padding: 100px 0;
 
-  // Texto introductorio a la izquierda
   .intro-text-wrapper {
     grid-column: 1 / 8;
     
@@ -389,8 +367,7 @@ header.hero {
       font-size: 36px;
       margin-bottom: 30px;
       
-      // APLICANDO EL MIXIN DECORATIVO
-      @include blue-decoration;
+      @include linea-decoracion;
     }
     
     p {
@@ -398,7 +375,7 @@ header.hero {
     }
   }
 
-  // Formulario a la derecha
+
   form {
     grid-column: 2 / 12;
     padding: 40px;
@@ -433,9 +410,9 @@ header.hero {
     }
 
     .abajo {
-      grid-column: 1 / -1; // Ocupa todo el ancho
+      grid-column: 1 / -1;
       background-color: $c-gray-formulario;
-      padding: 15px; // Un poco más de padding para que respire
+      padding: 15px;
       
       display: flex;
       flex-direction: column; 
@@ -443,7 +420,7 @@ header.hero {
 
       label {
         font-weight: 500;
-        align-self: flex-start; // Label a la izquierda
+        align-self: flex-start;
       }
 
       textarea {
@@ -453,22 +430,20 @@ header.hero {
         border: none;
         padding: 15px;
         background: $c-gray-formulario;
-        font-family: inherit; // Para que use la misma fuente
+        font-family: inherit;
       }
     }
     button {
-      grid-column: 1 / -1; // Importante: Ocupa todo el ancho de la fila del grid
-      justify-self: end;   // Se alinea al final (derecha) de esa fila
+      grid-column: 1 / -1;
+      justify-self: end;
       
       border: none;
       margin-top: 10px;
-      // Tus estilos .btn.formulario ya aplican el color y padding
-      color: $c-white; // Asegúrate de que el texto sea blanco si el fondo es negro
+      color: $c-white;
     }
   }
 }
 
-/* --- 10. UBICACIÓN --- */
 .location {
   @include grid-12;
   padding-bottom: 100px;
@@ -482,8 +457,7 @@ header.hero {
     font-size: 36px;
     margin-bottom: 20px;
 
-    // APLICANDO EL MIXIN DECORATIVO
-    @include blue-decoration;
+    @include linea-decoracion;
   }
 
   p {
@@ -499,7 +473,7 @@ header.hero {
     grid-row: 1/span 3;
 
     height: 400px;
-    background-color: #ddd; // Placeholder si no carga el iframe
+    background-color: $c-beige-bg;
     
     iframe {
       width: 100%;
@@ -509,89 +483,87 @@ header.hero {
   }
 }
 
-/* --- 11. FOOTER --- */
 footer {
   background-color: $c-dark-blue;
-  color: $c-beige-bg;
-  padding: 80px 0;
   
-  @include grid-12; // Layout general del footer
-
-  .footer-info {
-    grid-column: 2 / 4;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .footer-nav {
-    grid-column: 5 / 7;
+  .footer-container{
+    background-color: $c-dark-blue;
+    color: $c-beige-bg;
+    padding: 80px 0;
     
-    h4 { text-transform: uppercase; margin-bottom: 15px; }
-    ul li { margin-bottom: 8px; }
-  }
+    @include grid-12;
 
-  .footer-logo {
-    grid-column: 8 / 10;
-    
-    h1 { font-family: $font-serif; margin-bottom: 15px; }
-    .social-media { display: flex; gap: 10px; }
-  }
-
-  .newsletter {
-    grid-column: 11 / 13;
-    
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 20px;
-      border: 1px solid #EDEDED;
-      background: transparent;
-      color: white;
+    .footer-info {
+      grid-column: 2 / 4;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
-  }
-}
 
-/* --- 12. RESPONSIVE (MEDIA QUERIES) --- */
-/* Adaptación del Grid para pantallas móviles */
-@media (max-width: 768px) {
-  // Redefinimos el mixin grid-12 implícitamente o sobrescribimos las columnas
-  
-  header.hero .hero-content > *,
-  .about article, 
-  .about aside,
-  .services h3, .services p, .services a.btn,
-  .team h3, .team .team-members,
-  .testimonials h3, .testimonials .testimonials-container,
-  .contact-form .intro-text-wrapper, .contact-form form,
-  .location h3, .location p, .location .map,
-  footer > div {
-    grid-column: 1 / -1 !important; // Todo ocupa el ancho completo en móvil
-  }
-  
-  nav {
-    display: flex; 
-    flex-direction: column;
-    
-    .nav-links {
-      margin-top: 20px;
-      justify-content: center;
+    .footer-nav {
+      grid-column: 4 / 6;
+      
+      h4 { 
+        text-transform: uppercase; 
+        margin-bottom: 15px; 
+      }
+      ul li { 
+        list-style-type: none;
+        margin-bottom: 8px; 
+      }
     }
-  }
 
-  .team .team-members,
-  .testimonials .testimonials-container {
-    grid-template-columns: 1fr; // Una sola columna para las tarjetas
-  }
+    .footer-logo {
+      grid-column: 6 / 9;
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-  .contact-form form {
-    grid-template-columns: 1fr; // Formulario en una sola columna
-  }
-  
-  footer {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+      .social-media{ 
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+        gap: 10px; 
+
+        img{
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+
+    .newsletter {
+      grid-column: 10 / 12;
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid $c-white;
+        background-color: $c-white;
+        color: $c-white;
+      }
+
+      h4{
+        font-weight: 100;
+        font-size: 12px;
+      }
+
+      button{
+        display: block; 
+        width: 50%;
+        padding: 10px 1px;
+        border-radius: 20px;
+        border: 1px solid $c-white;
+        background: transparent;
+        color: $c-white;
+        font-size: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: auto;
+      }
+    }
   }
 }

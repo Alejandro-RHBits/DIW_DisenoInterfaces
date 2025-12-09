@@ -1,7 +1,4 @@
-@charset "UTF-8";
 /* --- 1. VARIABLES --- */
-/* --- 2. MIXINS --- */
-/* --- 3. RESET Y BASE --- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -52,9 +49,9 @@ img {
   border: 1px solid #000000;
 }
 
-/* --- 4. HEADER Y HERO --- */
 header.hero {
   background-image: url("../assets/img/header-background.jpg");
+  background-repeat: no-repeat;
   color: #F1F0EA;
   padding-bottom: 80px;
   position: relative;
@@ -64,7 +61,6 @@ header.hero .top-bar {
   padding: 10px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 14px;
-  /* Contenedor interno que usa el Grid de 12 columnas */
 }
 header.hero .top-bar-content {
   display: grid;
@@ -141,7 +137,6 @@ header.hero .hero-content .hero-buttons {
   padding: 0;
 }
 
-/* --- 5. SECCIÓN SOBRE NOSOTROS (About) --- */
 .about {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -187,7 +182,6 @@ header.hero .hero-content .hero-buttons {
   border-radius: 31px;
 }
 
-/* --- 6. SERVICIOS --- */
 .services {
   background-color: #112C50;
   background-image: url("../assets/img/techo-cristal.jpg");
@@ -220,7 +214,6 @@ header.hero .hero-content .hero-buttons {
   justify-self: center;
 }
 
-/* --- 7. EQUIPO (Team) --- */
 .team {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -282,7 +275,6 @@ header.hero .hero-content .hero-buttons {
   font-size: 14px;
 }
 
-/* --- 8. TESTIMONIOS --- */
 .testimonials {
   background-color: #112C50;
   color: #FFFFFF;
@@ -313,9 +305,6 @@ header.hero .hero-content .hero-buttons {
   height: 8px;
   background-color: #126F8D;
 }
-.testimonials .testimonials-grid h3::before {
-  background-color: #126F8D;
-}
 .testimonials .testimonials-grid .testimonials-container {
   grid-column: 1/15;
   display: grid;
@@ -338,7 +327,6 @@ header.hero .hero-content .hero-buttons {
   font-size: 15;
 }
 
-/* --- 9. FORMULARIO DE CONTACTO --- */
 .contact-form {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -428,7 +416,6 @@ header.hero .hero-content .hero-buttons {
   color: #FFFFFF;
 }
 
-/* --- 10. UBICACIÓN --- */
 .location {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -467,7 +454,7 @@ header.hero .hero-content .hero-buttons {
   grid-column: 4/12;
   grid-row: 1/span 3;
   height: 400px;
-  background-color: #ddd;
+  background-color: #F1F0EA;
 }
 .location .map iframe {
   width: 100%;
@@ -475,8 +462,10 @@ header.hero .hero-content .hero-buttons {
   border: 0;
 }
 
-/* --- 11. FOOTER --- */
 footer {
+  background-color: #112C50;
+}
+footer .footer-container {
   background-color: #112C50;
   color: #F1F0EA;
   padding: 80px 0;
@@ -487,80 +476,67 @@ footer {
   width: 90%;
   margin: 0 auto;
 }
-footer .footer-info {
+footer .footer-container .footer-info {
   grid-column: 2/4;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-footer .footer-nav {
-  grid-column: 5/7;
+footer .footer-container .footer-nav {
+  grid-column: 4/6;
 }
-footer .footer-nav h4 {
+footer .footer-container .footer-nav h4 {
   text-transform: uppercase;
   margin-bottom: 15px;
 }
-footer .footer-nav ul li {
+footer .footer-container .footer-nav ul li {
+  list-style-type: none;
   margin-bottom: 8px;
 }
-footer .footer-logo {
-  grid-column: 8/10;
-}
-footer .footer-logo h1 {
-  font-family: "Reckless Neue", serif;
-  margin-bottom: 15px;
-}
-footer .footer-logo .social-media {
+footer .footer-container .footer-logo {
+  grid-column: 6/9;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer .footer-container .footer-logo .social-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
   gap: 10px;
 }
-footer .newsletter {
-  grid-column: 11/13;
+footer .footer-container .footer-logo .social-media img {
+  width: 30px;
+  height: 30px;
 }
-footer .newsletter input {
+footer .footer-container .newsletter {
+  grid-column: 10/12;
+}
+footer .footer-container .newsletter input {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
-  border-radius: 20px;
-  border: 1px solid #EDEDED;
-  background: transparent;
-  color: white;
+  border: 1px solid #FFFFFF;
+  background-color: #FFFFFF;
+  color: #FFFFFF;
 }
-
-/* --- 12. RESPONSIVE (MEDIA QUERIES) --- */
-/* Adaptación del Grid para pantallas móviles */
-@media (max-width: 768px) {
-  header.hero .hero-content > *,
-  .about article,
-  .about aside,
-  .services h3, .services p, .services a.btn,
-  .team h3, .team .team-members,
-  .testimonials h3, .testimonials .testimonials-container,
-  .contact-form .intro-text-wrapper, .contact-form form,
-  .location h3, .location p, .location .map,
-  footer > div {
-    grid-column: 1/-1 !important;
-  }
-  nav {
-    display: flex;
-    flex-direction: column;
-  }
-  nav .nav-links {
-    margin-top: 20px;
-    justify-content: center;
-  }
-  .team .team-members,
-  .testimonials .testimonials-container {
-    grid-template-columns: 1fr;
-  }
-  .contact-form form {
-    grid-template-columns: 1fr;
-  }
-  footer {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-  }
+footer .footer-container .newsletter h4 {
+  font-weight: 100;
+  font-size: 12px;
+}
+footer .footer-container .newsletter button {
+  display: block;
+  width: 50%;
+  padding: 10px 1px;
+  border-radius: 20px;
+  border: 1px solid #FFFFFF;
+  background: transparent;
+  color: #FFFFFF;
+  font-size: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
 }
 
 /*# sourceMappingURL=style.css.map */
