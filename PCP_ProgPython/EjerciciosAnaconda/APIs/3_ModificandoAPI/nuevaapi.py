@@ -1,21 +1,26 @@
-from typing import Annotated
-
-from fastapi import Body, FastAPI, Field
-from pydantic import BaseModel
+from fastapi import FastAPI
+from pydantic import BaseModel, Field
 
 app = FastAPI()
 
+lista_items = []
 
 class Item(BaseModel):
-    name: str = Field(examples = "")
-    description: str | None = Field(default="null")
+    name: str = Field(examples=["Foo"])
+    description: str | None = Field(default = None, examples=["A ver si funciona"])
     price: float = Field(examples=[35.4])
-    tax: float | None = Field(default=None, )
+    tax: float | None = Field(default=None, examples=[3.2])
 
+
+@app.get("/stock")
+def mostrar_items():
+    return {"Listado Objetos: " + lista_items}
 
 @app.put("/items/{item_id}")
-async def update_item(
-    
-):
-    results = {"item_id": item_id, "item": item}
-    return results
+async def update_item(item_id: int, item: Item):
+    lista_items.append({"item_id: ": item_id, "item: ": item})
+    return item
+
+@app.delete("/delete/{item_id}")
+def eliminar_items():
+    return {}
