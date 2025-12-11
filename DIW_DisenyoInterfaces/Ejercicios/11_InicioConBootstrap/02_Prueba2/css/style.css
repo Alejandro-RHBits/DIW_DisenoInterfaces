@@ -1,0 +1,13 @@
+div.container-fluid div.row div{
+    height: 100px;
+}
+
+.red{
+    background-color: red;
+}
+.yellow{
+    background-color: yellow;
+}
+.blue{
+    background-color: blue;
+}
